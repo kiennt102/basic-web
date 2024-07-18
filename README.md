@@ -1,0 +1,1 @@
+This is my homework of class basic web design. AFTER DOWNLOADING OR CLONNING MY PROJECT, YOU CAN RUN IT BY CHOOSING FILE ENDWITH ".html". Thank you for giving interested with my project abd sorry for not adding all images ".png or .jpg" in a folder!
