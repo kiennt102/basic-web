@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Fake news</title>
+		<link rel="stylesheet" type="text/css" href="css.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">      
+		<script src="main.js"></script>
+		<script src="jquery-3.7.1.js"></script>
+		
+		<script>
+				$(document).ready(function(){		
+										
+					$(".news-class").hover(			
+						function(){
+							$(this).css("background-color","#DDD");
+							$(".news-class input").css("color","#DDD")
+						},
+						
+						function(){
+							$(this).css("background-color","#111111");
+							$(".news-class input").css("color","#111111")
+						},			
+					);
+							
+				});
+			</script>
+		
+	</head>
+
+	<body>
+		<div id='header-main'>
+				<div id="left-content">
+					<h1>THF-SHOP</h1>
+					<h3><a href="main.html">Home<a/></h3>
+					<h3><a href="news.html">News</a></h3>
+					<h3><a href="index.html">Market</a></h3>
+				</div>
+		</div>
+		
+		<div id="picpannel">
+			<img src="mainpannel.jpg"/>
+		</div>
+	
+		<div id ="news">
+			<div class="news-class"> <img src="news_1.png"/> <input type="button" value="Watch"/> </div>
+			<div class="news-class"> <img src="news_2.png"/> <input type="button" value="Watch"/> </div>
+			<div class="news-class"> <img src="news_3.png"/> <input type="button" value="Watch"/> </div>
+			<div class="news-class"> <img src="news_4.png"/> <input type="button" value="Watch"/> </div>
+			<div class="news-class"> <img src="news3.png"/> <input type="button" value="Watch"/> </div>
+		</div>	
+	
+	</body>
+
+</html>	

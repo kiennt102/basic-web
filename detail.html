@@ -1,0 +1,152 @@
+<html>
+<html>
+	<head>
+		<title>Detail product</title>
+		<link rel="stylesheet" type="text/css" href="css.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">      
+		<script src="main.js"></script>
+		<script src="jquery-3.7.1.js"></script>
+		
+		<script>
+				$(document).ready(function(){					
+					data = localStorage.getItem("Detail");
+					item = JSON.parse(data)
+					
+					//alert(data)
+					//alert(item)
+					
+					buy_item = localStorage.getItem("productDetail")
+					buy_item_length = JSON.parse(buy_item)
+					
+					
+					$("#Cart").text("Cart ("+buy_item_length.length+")");	
+					
+					var name = item[0].name;
+					var price = item[0].price;
+					var photo = item[0].photo;
+					
+					//alert(name)
+					//alert(price)
+					//alert(photo)
+					
+					$("#product-name h2").text(name);
+					$("#price span").text("Current price: "+price);
+					$("#gun-picture img").attr("src", photo);
+				});
+		</script>		
+		
+		
+	</head>
+
+	<body>
+	
+		<div id="header">
+			<div id="header-content">
+				<div id="left-content">
+					<h1>THF-SHOP</h1>
+					<h3><a href="main.html">Home<a/></h3>
+					<h3><a href="news.html">News</a></h3>
+					<h3><a href="index.html">Market</a></h3>
+				</div>
+
+				<div id="right-content">			
+					<h4><a id="Cart" href="cart.html">Cart (0)</a></h4>			
+					<h4><a href="#">Login/Register  |</a></h4>				
+				</div>
+			</div>			
+			<div id="pannel">
+				<img src="pannel1.jpg"/>
+				<script>autoPlay();</script>
+			</div>				
+		</div>
+		
+		
+		<div id="detail-body">
+			<div id="detail-picture">
+				<div id="gun-picture">
+					<img src= "" />
+				</div>
+								
+				<div id="sticker-picture">
+					<div class="sticker" id="sticker">
+						<img src="sticker.png"/>
+					</div>
+
+					<div class="sticker" id="sticker">
+						<img src="sticker.png"/>
+					</div>
+					
+					<div class="sticker" id="sticker">
+						<img src="sticker.png"/>
+					</div>
+					
+					<div class="sticker" id="sticker">
+						<img src="sticker.png"/>
+					</div>				
+				
+				</div>
+			</div>
+			
+			
+			<div id="detail-content">
+				<div id="product-name">
+					<h2></h2>
+				</div>
+				
+				<div id="product-state">
+					<img src="float.png"/>
+				</div>
+				
+				<div id="price">
+					<span>Current price</span></br>
+					<spa></span>
+				</div>
+			</div>
+		</div>
+		
+	
+
+		<div id="footer">
+			<div id="footer-content">
+				<div id="footer-1">
+					<h3>Account settings</h3>
+					<ul>
+						<li><a href="#right-content">Steam settings</a></li>
+					</ul>
+				</div>
+				
+				<div id="footer-1">
+					<h3>Wallet Issues</h3>
+					<ul>
+						<li>Charging standards</li>
+						<li>Illegal account publicity</li>
+					</ul>			
+				</div>
+				
+				<div id="footer-1">
+					<h3>FAQ</h3>
+					<ul>
+						<li>Buyers FAQ</li>
+						<li>Sellers FAQ</li>
+						<li>Unable to trade</li>
+						<li>Other FAQ</li>
+					</ul>			
+				</div>
+				
+				<div id="footer-1">
+					<h3>Convenient payment</h3>
+					<ul>
+						<li>Alipay</li>
+						<li>Bank card payments</li>
+						<li>WeChat payment</li>
+					</ul>			
+				</div>	
+			</div>
+			
+			<div id="footer-contact">
+				<span><h3>© Copyright belong to <b>NUS</b> <a>Powered by Kien Nguyen</a> </h3></span>
+			</div>
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,437 @@
+<html>
+	<head>
+		<title>Killer market</title>
+		<link rel="stylesheet" type="text/css" href="css.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">      
+		<script src="main.js"></script>
+		<script src="jquery-3.7.1.js"></script>
+		<script>
+			$(document).ready(function(){
+				var productDetail = "";
+				//var count = 0;
+
+				$(".product-button-buy").click(function(){
+					
+					var productName = $(this).prev().prev().prev().text();
+					var productPrice = $(this).prev().prev().text();
+					var productPhotoSrc = $(this).parent().siblings(".product-photo2").attr('src');
+
+
+
+					var item = {
+						"name": productName,
+						"price": productPrice,
+						"photo": productPhotoSrc
+					};
+
+
+					if(productDetail=="")
+						productDetail = JSON.stringify(item);
+					else
+						productDetail += "," + JSON.stringify(item);
+					//alert(productDetail);
+					
+					localStorage.setItem("productDetail","["+productDetail+"]");
+					
+					cnt = localStorage.getItem("productDetail");
+					dem = JSON.parse(cnt)
+					$("#Cart").text("Cart ("+dem.length+")");
+
+					
+				});
+			});
+		</script>
+		
+		
+		<script>
+			$(document).ready(function(){
+				var pDetail = "";
+
+				$(".product-button-detail").click(function(){
+					
+					var productName = $(this).prev().prev().text();
+					var productPrice = $(this).prev().text();
+					var productPhotoSrc = $(this).parent().siblings(".product-photo2").attr('src');
+
+
+					var item = {
+						"name": productName,
+						"price": productPrice,
+						"photo": productPhotoSrc
+					};
+
+					if(pDetail=="")
+						pDetail = JSON.stringify(item);
+					else
+						pDetail += "," + JSON.stringify(item);
+					//alert(pDetail);					
+					
+					localStorage.setItem("Detail","["+pDetail+"]");
+					
+					window.location.href = "detail.html";
+				});
+			});
+		</script>
+
+		
+	</head>
+
+	<body>
+	
+		<div id="header">
+			<div id="header-content">
+				<div id="left-content">
+					<h1>THF-SHOP</h1>
+					<h3><a href="main.html">Home<a/></h3>
+					<h3><a href="news.html">News</a></h3>
+					<h3><a href="index.html">Market</a></h3>
+				</div>
+
+				<div id="right-content">			
+					<h4><a id="Cart" href="cart.html">Cart (0)</a></h4>			
+					<h4><a href="#">Login/Register  |</a></h4>				
+				</div>
+			</div>			
+			<div id="pannel">
+				<img src="pannel1.jpg"/>
+				<script>autoPlay();</script>
+			</div>				
+		</div>
+		
+		
+		<div class="content" id="content1">
+			<div id="content-1">
+				<div id="content-1-category">
+					<div id="a" class="category"><a href="#content-1"> Assault Rifles </a></div>
+					<div id="b" class="category"><a href="#content-2"> Sniper Rifle </a></div>
+					<div id="c" class="category"><a href="#content-3"> Gloves </a></div>
+					<div id="d" class="category"><a href="#content-3"> Knife </a></div>
+				</div>
+				
+				<div id="content-1-product">
+					<div id="content-1-product1">
+						<div id="product1">
+							<img class="product-photo2" src="product1.png"/>
+							<div class="context">
+								<span class="product-content">AK-47 | Case Hardened</span>
+								<span class="product-content">$49 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>
+						</div>
+						
+						<div id="product2">
+							<img class="product-photo2" src="product2.png"/>
+							<div class="context">
+								<span class="product-content">AK-47 | Gold Arabesque</span>
+								<span class="product-content">$19 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>						
+						</div>
+						
+						<div id="product3">
+							<img class="product-photo2" src="product3.png"/>	
+							<div class="context">
+								<span class="product-content">AK-47 | Wild Lotus</span>
+								<span class="product-content">$39 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>							
+						</div>
+						
+						<div id="product4">
+							<img class="product-photo2" src="product4.png"/>
+							<div class="context">
+								<span class="product-content">AK-47 | Hydroponic</span>
+								<span class="product-content">$33 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>
+						</div>
+					</div>
+					
+					<div id="content-1-product2">
+						<div id="product5">
+							<img class="product-photo2" src="product5.png"/>	
+							<div class="context">
+								<span class="product-content">M4A4 | Eye of Horus</span>
+								<span class="product-content">$9 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>							
+						</div>
+						
+						<div id="product6">
+							<img class="product-photo2" src="product6.png"/>
+							<div class="context">
+								<span class="product-content">M4A4 | Howl</span>
+								<span class="product-content">$59 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>							
+						</div>
+						
+						<div id="product7">
+							<img class="product-photo2" src="product7.png"/>	
+							<div class="context">
+								<span class="product-content">M4A4 | Radiation Hazard</span>
+								<span class="product-content">$2 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>							
+						</div>
+						
+						<div id="product8">
+							<img class="product-photo2" src="product8.png"/>		
+							<div class="context">
+								<span class="product-content">M4A4 | Poseidon</span>
+								<span class="product-content">$1 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>							
+						</div>
+					</div>
+				</div>		
+			</div>			
+		</div>
+	
+		<div class="content" id="content2">
+			<div id="content-2">
+				<div id="content-1-category">
+					<div id="d" class="category"><a href="#content-1"> Assault Rifles </a></div>
+					<div id="e" class="category"><a href="#content-2"> Sniper Rifle </a></div>
+					<div id="c" class="category"><a href="#content-3"> Gloves </a></div>
+					<div id="d" class="category"><a href="#content-3"> Knife </a></div>
+				</div>
+				
+				<div id="content-2-product">
+					<div id="content-1-product1">
+						<div id="product1">
+							<img class="product-photo2" src="product21.png"/>
+							<div class="context">
+								<span class="product-content">AWP | Gungnir</span>
+								<span class="product-content">$15 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>
+						</div>
+						
+						<div id="product2">
+							<img class="product-photo2" src="product22.png"/>
+							<div class="context">
+								<span class="product-content">AWP | Dragon Lore</span>
+								<span class="product-content">$19 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>						
+						</div>
+						
+						<div id="product3">
+							<img class="product-photo2" src="product23.png"/>	
+							<div class="context">
+								<span class="product-content">AWP | Medusa</span>
+								<span class="product-content">$9 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>							
+						</div>
+						
+						<div id="product4">
+							<img class="product-photo2" src="product24.png"/>
+							<div class="context">
+								<span class="product-content">AWP | Desert Hydra</span>
+								<span class="product-content">$7 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>
+						</div>
+					</div>
+					
+					<div id="content-1-product2">
+						<div id="product5">
+							<img class="product-photo2" src="product25.png"/>	
+							<div class="context">
+								<span class="product-content">AWP | Lightning Strike</span>
+								<span class="product-content">$4 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>							
+						</div>
+						
+						<div id="product6">
+							<img class="product-photo2" src="product26.png"/>
+							<div class="context">
+								<span class="product-content">AWP | The Prince</span>
+								<span class="product-content">$5 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>							
+						</div>
+						
+						<div id="product7">
+							<img class="product-photo2" src="product27.png"/>	
+							<div class="context">
+								<span class="product-content">AWP | BOOM</span>
+								<span class="product-content">$8 799</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>							
+						</div>
+						
+						<div id="product8">
+							<img class="product-photo2" src="product28.png"/>		
+							<div class="context">
+								<span class="product-content">AWP | Redline</span>
+								<span class="product-content">$3 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>							
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>	
+	
+		<div class="content" id="content3">
+			<div id="content-3">
+				<div id="content-1-category">
+					<div id="c" class="category"><a href="#content-1"> Assault Rifles </a></div>
+					<div id="d" class="category"><a href="#content-2"> Sniper Rifle </a></div>
+					<div id="e" class="category"><a href="#content-3"> Gloves </a></div>
+					<div id="a" class="category"><a href="#content-3"> Knife </a></div>					
+				</div>
+				
+				<div id="content-1-product">
+					<div id="content-1-product1">
+						<div id="product1">
+							<img class="product-photo2" src="product31.png"/>
+							<div class="context">
+								<span class="product-content">Karambit Case Hardened</span>
+								<span class="product-content">$47 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>
+						</div>
+						
+						<div id="product2">
+							<img class="product-photo2" src="product32.png"/>
+							<div class="context">
+								<span class="product-content">Karambit Gamma Doppler Emerald</span>
+								<span class="product-content">$13 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>						
+						</div>
+						
+						<div id="product3">
+							<img class="product-photo2" src="product33.png"/>	
+							<div class="context">
+								<span class="product-content">Karambit Gamma Doppler Ruby</span>
+								<span class="product-content">$12 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>							
+						</div>
+						
+						<div id="product4">
+							<img class="product-photo2" src="product34.png"/>
+							<div class="context">
+								<span class="product-content">Karambit Fade</span>
+								<span class="product-content">$35 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>
+						</div>
+					</div>
+					
+					<div id="content-1-product2">
+						<div id="product5">
+							<img class="product-photo2" src="product35.png"/>	
+							<div class="context">
+								<span class="product-content">Butterfly Gamma Doppler Emerald</span>
+								<span class="product-content">$17 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>							
+						</div>
+						
+						<div id="product6">
+							<img class="product-photo2" src="product36.png"/>
+							<div class="context">
+								<span class="product-content">Butterfly Doppler Sapphire</span>
+								<span class="product-content">$19 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>							
+						</div>
+						
+						<div id="product7">
+							<img class="product-photo2" src="product37.png"/>	
+							<div class="context">
+								<span class="product-content">Butterfly Doppler Black Pearl</span>
+								<span class="product-content">$10 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>							
+						</div>
+						
+						<div id="product8">
+							<img class="product-photo2" src="product38.png"/>		
+							<div class="context">
+								<span class="product-content">Butterfly Lore</span>
+								<span class="product-content">$5 999</span>
+								<input class="product-button-detail" type="button"/>
+								<input class="product-button-buy" type="button"/>								
+							</div>							
+						</div>
+					</div>
+				</div>		
+			</div>	
+		</div>
+
+		<div id="footer">
+			<div id="footer-content">
+				<div id="footer-1">
+					<h3>Account settings</h3>
+					<ul>
+						<li><a href="#right-content">Steam settings</a></li>
+					</ul>
+				</div>
+				
+				<div id="footer-1">
+					<h3>Wallet Issues</h3>
+					<ul>
+						<li>Charging standards</li>
+						<li>Illegal account publicity</li>
+					</ul>			
+				</div>
+				
+				<div id="footer-1">
+					<h3>FAQ</h3>
+					<ul>
+						<li>Buyers FAQ</li>
+						<li>Sellers FAQ</li>
+						<li>Unable to trade</li>
+						<li>Other FAQ</li>
+					</ul>			
+				</div>
+				
+				<div id="footer-1">
+					<h3>Convenient payment</h3>
+					<ul>
+						<li>Alipay</li>
+						<li>Bank card payments</li>
+						<li>WeChat payment</li>
+					</ul>			
+				</div>	
+			</div>
+			
+			<div id="footer-contact">
+				<span><h3>© Copyright belong to <b>NUS</b> <a>Powered by Kien Nguyen</a> </h3></span>
+			</div>
+			
+		</div>
+	</body>
+
+</html>

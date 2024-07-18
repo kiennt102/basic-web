@@ -1,0 +1,152 @@
+<html>
+<html>
+	<head>
+		<title>Detail Cart</title>
+		<link rel="stylesheet" type="text/css" href="css.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">      
+		<script src="main.js"></script>
+		<script src="jquery-3.7.1.js"></script>
+		
+		<script>
+		$(document).ready(function(){
+			
+			var content = '<h1>YOUR CART <input type="button"/></h1>'	
+			
+			data = localStorage.getItem("productDetail");
+			//alert(data)
+			order = JSON.parse(data);
+			//alert(order)
+			
+			$("#Cart").text("Cart ("+order.length+")");
+			
+			//alert(order.length)
+			for(let i = 0; i < order.length; i ++){
+				content += 
+				`<div class="cart-item" style="display:flex">
+								<div class="cart-photo"> <img src= '${order[i].photo}' /> </div>
+								<div class="cart-name"> ${order[i].name} </div>
+								<div class="cart-price"> ${order[i].price} </div>
+								<div class="cart-amount"> 1 </div>
+								<div class="cart-action"> <input type="button" value="Delete" /> </div>					
+				</div>`
+			};
+			
+			
+			$("#detail-body-content").html(content)
+			
+			$(".cart-item").hover(			
+				function(){
+					$(this).css("background-color","#DDD");
+				},
+				
+				function(){
+					$(this).css("background-color","#333333");
+				},			
+			);
+			
+			//Xoa san pham
+			$(".cart-action").click(function() {
+                var index = $(this).closest('.cart-item').data('index');
+                order.splice(index, 1);
+                localStorage.setItem("productDetail", JSON.stringify(order));
+                location.reload();
+            });			
+
+			//Thanh toan
+			$("#detail-body-content h1 input").click(function() {
+			    var money = 0;
+				for(let i = 0; i < order.length; i ++){
+				var productmoney = order[i].price.replace(/[^0-9]/g, '');
+				//alert(productmoney);
+				var price = parseFloat(productmoney);
+				money += price
+				};
+				alert("Total price: $"+money);
+				localStorage.clear();
+				var content = '<h1>YOUR CART <input type="button"/></h1>'	
+				$("#detail-body-content").html(content)
+
+            });				
+			
+			
+		});
+	</script>
+		
+		
+	</head>
+
+	<body>
+	
+		<div id="header">
+			<div id="header-content">
+				<div id="left-content">
+					<h1>THF-SHOP</h1>
+					<h3><a href="main.html">Home<a/></h3>
+					<h3><a href="news.html">News</a></h3>
+					<h3><a href="index.html">Market</a></h3>
+				</div>
+
+				<div id="right-content">			
+					<h4><a id="Cart" href="cart.html">Cart (0)</a></h4>			
+					<h4><a href="#">Login/Register  |</a></h4>				
+				</div>
+			</div>			
+			<div id="pannel">
+				<img src="pannel1.jpg"/>
+				<script>autoPlay();</script>
+			</div>				
+		</div>
+		
+		
+		<div id="detail-body">
+			<div id="detail-body-content">
+			
+			</div>
+		</div>
+		
+	
+
+		<div id="footer">
+			<div id="footer-content">
+				<div id="footer-1">
+					<h3>Account settings</h3>
+					<ul>
+						<li><a href="#right-content">Steam settings</a></li>
+					</ul>
+				</div>
+				
+				<div id="footer-1">
+					<h3>Wallet Issues</h3>
+					<ul>
+						<li>Charging standards</li>
+						<li>Illegal account publicity</li>
+					</ul>			
+				</div>
+				
+				<div id="footer-1">
+					<h3>FAQ</h3>
+					<ul>
+						<li>Buyers FAQ</li>
+						<li>Sellers FAQ</li>
+						<li>Unable to trade</li>
+						<li>Other FAQ</li>
+					</ul>			
+				</div>
+				
+				<div id="footer-1">
+					<h3>Convenient payment</h3>
+					<ul>
+						<li>Alipay</li>
+						<li>Bank card payments</li>
+						<li>WeChat payment</li>
+					</ul>			
+				</div>	
+			</div>
+			
+			<div id="footer-contact">
+				<span><h3>© Copyright belong to <b>NUS</b> <a>Powered by Kien Nguyen</a> </h3></span>
+			</div>
+			
+		</div>
+	</body>
+</html>
